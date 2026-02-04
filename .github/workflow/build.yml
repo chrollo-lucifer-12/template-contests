@@ -1,0 +1,19 @@
+name: Push Challenges
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Run Container
+      run: docker run --rm \
+        --env-file .env \
+        sahil1107/add-challenges:latest
